@@ -41,7 +41,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8080/auth/signup", {
+      const response = await fetch("https://deploy-mern-app-1-two.vercel.app/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(signupInfo),
