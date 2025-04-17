@@ -29,7 +29,7 @@ const Home = () => {
         },
       };
       const response = await axios.get(
-        "http://localhost:8080/products/",
+        "https://deploy-mern-app-1-two.vercel.app/products/",
         headers
       );
       // console.log(response);
