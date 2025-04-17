@@ -1,14 +1,25 @@
-const express = require("express");;
-const app = express();
+
+const express = require('express')
+const app = express()
 require("dotenv").config();
-require("./Models/db")
+const cors = require("cors");
+const AuthRouter = require("./Routers/AuthRouter");
+const ProductRouter=require("./Routers/ProductRouter")
 
-const port = process.env.PORT || 8080;
+app.use(cors());
+app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.send("hello from backend");
+const port = process.env.PORT||8080;
+require("./Models/db");
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
 })
 
+app.use("/auth", AuthRouter);
+app.use("/products", ProductRouter);
+
 app.listen(port, () => {
-console.log(`server is running on http://127.0.0.127:${port}`)
+  console.log(`Example app listening on port ${port}`)
+
 })
